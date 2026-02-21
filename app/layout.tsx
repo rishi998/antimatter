@@ -11,6 +11,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   title: {
     default: "Antimatter Verse – Engineering Solutions That Matter",
     template: "%s | Antimatter Verse",

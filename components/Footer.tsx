@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { spacing } from "@/lib/theme";
 
 const footerLinks = {
@@ -28,16 +29,16 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link
               href="/"
-              className="flex items-center gap-2 mb-5 group w-fit"
+              className="flex items-center mb-5 group w-fit"
               aria-label="Antimatter Verse Home"
             >
-              <span className="w-2 h-2 bg-av-teal rounded-full group-hover:bg-av-orange transition-colors duration-200" />
-              <span className="text-lg font-bold tracking-widest text-white">
-                ANTIMATTER{" "}
-                <span className="text-av-teal group-hover:text-av-orange transition-colors duration-200">
-                  VERSE
-                </span>
-              </span>
+              <Image
+                src="/logo.png"
+                alt="Antimatter Verse"
+                width={160}
+                height={160}
+                className="object-contain group-hover:scale-105 transition-transform duration-200"
+              />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed max-w-sm mb-6">
               Engineering solutions that matter. Technical excellence meets

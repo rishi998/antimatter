@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { spacing } from "@/lib/theme";
@@ -47,16 +48,17 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 group"
+          className="flex items-center group"
           aria-label="Antimatter Verse Home"
         >
-          <span className="w-2 h-2 bg-av-teal rounded-full group-hover:bg-av-orange transition-colors duration-200" />
-          <span className="text-lg font-bold tracking-widest text-white">
-            ANTIMATTER{" "}
-            <span className="text-av-teal group-hover:text-av-orange transition-colors duration-200">
-              VERSE
-            </span>
-          </span>
+          <Image
+            src="/logo.png"
+            alt="Antimatter Verse"
+            width={200}
+            height={200}
+            className="object-contain group-hover:scale-105 transition-transform duration-200"
+            priority
+          />
         </Link>
 
         {/* Desktop Links */}
