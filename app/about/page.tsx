@@ -19,7 +19,7 @@ const founders = [
   },
   {
     name: "Rishi Mehto",
-    role: "Vice President of Engineering",
+    role: "Chief Backend Architect",
     bio: "Rishi oversees all engineering operations — from system design to code quality standards. With deep expertise in full-stack development and cloud infrastructure, he ensures every product is built to last.",
     initials: "RM",
   },
