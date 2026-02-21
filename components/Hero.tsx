@@ -40,7 +40,7 @@ export default function Hero() {
 
   return (
     <section
-      className={`relative min-h-screen flex items-center ${spacing.sectionX} pt-24 pb-16 overflow-hidden`}
+      className={`relative min-h-screen flex items-center ${spacing.sectionX} pt-20 pb-16 overflow-hidden`}
       aria-label="Hero"
     >
       {/* Grid background */}
