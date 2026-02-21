@@ -148,7 +148,7 @@ export default function AboutPage() {
       <SectionWrapper id="vision-mission">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-14">
           {/* Vision */}
-          <div className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl`}>
+          <div className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl my-8`}>
             <div className="w-12 h-12 bg-av-teal/10 border-[1.5px] border-av-teal rounded-xl flex items-center justify-center mb-6">
               <span className="text-av-teal font-bold text-lg">V</span>
             </div>

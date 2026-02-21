@@ -31,7 +31,7 @@ export default function CTASection() {
           >
             <motion.div
               variants={motionVariants.fadeUp}
-              className="flex items-center gap-3 mb-4"
+              className="flex items-center gap-3 mb-4 mt-10"
             >
               <span className="w-8 h-px bg-av-orange" aria-hidden="true" />
               <span className="text-av-orange text-sm font-medium tracking-[0.2em] uppercase">
@@ -80,6 +80,7 @@ export default function CTASection() {
                 ? {}
                 : { type: "spring", stiffness: 80, damping: 20, delay: 0.15 }
             }
+            className="my-10"
           >
             {submitted ? (
               <motion.div

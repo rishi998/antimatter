@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { spacing } from "@/lib/theme";
@@ -13,20 +14,29 @@ const stats = [
 
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
+  const [dotCount, setDotCount] = useState(1);
+
+  useEffect(() => {
+    if (shouldReduceMotion) return;
+    const interval = setInterval(() => {
+      setDotCount((d) => (d >= 3 ? 1 : d + 1));
+    }, 500);
+    return () => clearInterval(interval);
+  }, [shouldReduceMotion]);
 
   const entrance = (delay = 0) =>
     shouldReduceMotion
       ? {}
       : {
-          initial: { opacity: 0, y: 24 },
-          animate: { opacity: 1, y: 0 },
-          transition: {
-            type: "spring",
-            stiffness: 80,
-            damping: 20,
-            delay,
-          },
-        };
+        initial: { opacity: 0, y: 100 },
+        animate: { opacity: 1, y: 70 },
+        transition: {
+          type: "spring",
+          stiffness: 80,
+          damping: 20,
+          delay,
+        },
+      };
 
   return (
     <section
@@ -54,10 +64,10 @@ export default function Hero() {
         {/* Tag */}
         <motion.div
           {...entrance(0)}
-          className="flex items-center gap-3 mb-10"
+          className="flex items-center gap-3 mb-5"
         >
           <span className="w-8 h-px bg-av-orange" aria-hidden="true" />
-          <span className="text-av-orange text-sm font-medium tracking-[0.22em] uppercase">
+          <span className="text-av-orange text-md font-medium tracking-[0.22em] uppercase">
             Professional Consultancy
           </span>
         </motion.div>
@@ -66,16 +76,16 @@ export default function Hero() {
         <motion.div {...entrance(0.1)}>
           {/* Float loop on headline text (skipped when reduced motion) */}
           <motion.div
-            animate={shouldReduceMotion ? {} : { y: [0, -6, 0] }}
+            animate={shouldReduceMotion ? {} : { y: [0, -28, 0] }}
             transition={
               shouldReduceMotion
                 ? {}
                 : {
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.9,
-                  }
+                  duration: 1.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.9,
+                }
             }
           >
             <h1 className="text-5xl md:text-7xl xl:text-[88px] font-bold leading-[1.04] tracking-tight text-white mb-8">
@@ -84,7 +94,7 @@ export default function Hero() {
               <br />
               That{" "}
               <span className="relative inline-block">
-                Matter.
+                Matter
                 {/* Underline expansion */}
                 <motion.span
                   className="absolute -bottom-1 left-0 h-[3px] bg-av-orange rounded-full"
@@ -93,11 +103,46 @@ export default function Hero() {
                   transition={
                     shouldReduceMotion
                       ? {}
-                      : { delay: 0.9, duration: 0.45, ease: "easeOut" }
+                      : { delay: 0.1, duration: 0.15, ease: "easeOut" }
                   }
                   aria-hidden="true"
                 />
               </span>
+              {/* Animated dots — slide in left to right */}
+              {/* Animated dots — 180° horizontal arc */}
+              {/* Animated dots — rise from bottom of "r" */}
+<span className="relative inline-block">
+  {[1, 2, 3].map((n, index) => (
+    <motion.span
+      key={n}
+      className="inline-block text-av-orange"
+      initial={
+        shouldReduceMotion
+          ? {}
+          : { y: 18, opacity: 0 } // start below baseline
+      }
+      animate={
+        shouldReduceMotion
+          ? {}
+          : {
+              y: dotCount >= n ? 0 : 18,
+              opacity: dotCount >= n ? 1 : 0,
+            }
+      }
+      transition={{
+        duration: 0.35,
+        ease: "easeOut",
+        delay: index * 0.12,
+      }}
+      style={{
+        display: "inline-block",
+        verticalAlign: "baseline",
+      }}
+    >
+      .
+    </motion.span>
+  ))}
+</span>
             </h1>
           </motion.div>
         </motion.div>
