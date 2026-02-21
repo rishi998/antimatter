@@ -93,7 +93,7 @@ export default function Testimonials() {
             dragConstraints={containerRef}
             dragElastic={0.1}
             whileDrag={{ cursor: "grabbing" }}
-            className="flex gap-6 cursor-grab select-none pb-4"
+            className="flex gap-10 cursor-grab select-none pb-4"
             style={{ width: "max-content" }}
           >
             {testimonials.map((t, i) => (

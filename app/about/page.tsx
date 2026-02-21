@@ -146,7 +146,7 @@ export default function AboutPage() {
 
       {/* Vision & Mission */}
       <SectionWrapper id="vision-mission">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-14">
           {/* Vision */}
           <div className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl`}>
             <div className="w-12 h-12 bg-av-teal/10 border-[1.5px] border-av-teal rounded-xl flex items-center justify-center mb-6">
@@ -217,7 +217,7 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Founders */}
-      <SectionWrapper id="team">
+      <SectionWrapper id="team" className="mb-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-8 h-px bg-av-orange" />

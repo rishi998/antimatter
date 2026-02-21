@@ -2,8 +2,8 @@ export const spacing = {
   sectionY: "py-24",
   sectionX: "px-6 md:px-16",
   cardPadding: "p-10",
-  gapLarge: "gap-12",
-  gapMedium: "gap-8",
+  gapLarge: "gap-14",
+  gapMedium: "gap-10",
 } as const;
 
 export const colors = {
