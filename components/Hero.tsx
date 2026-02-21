@@ -123,7 +123,7 @@ export default function Hero() {
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-2.5 px-8 py-4 bg-av-teal text-white font-semibold text-base rounded-sm hover:bg-av-orange transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-teal"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-av-teal text-white font-semibold text-base rounded-xl hover:bg-av-orange transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-teal"
             >
               Explore Services
               <svg
@@ -150,7 +150,7 @@ export default function Hero() {
           >
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-white font-semibold text-base rounded-sm hover:border-av-orange hover:text-av-orange transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-white font-semibold text-base rounded-xl hover:border-av-orange hover:text-av-orange transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50"
             >
               Work With Us
             </Link>

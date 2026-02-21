@@ -117,7 +117,7 @@ export default function ServicesGrid({ preview = false }: { preview?: boolean })
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className={`grid grid-cols-1 md:grid-cols-3 ${spacing.gapMedium}`}
+          className={`grid grid-cols-1 md:grid-cols-3 ${spacing.gapLarge}`}
         >
           {services.map((service, i) => (
             <ServiceCard
@@ -185,11 +185,11 @@ function ServiceCard({
             }
       }
       whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
-      className="group relative bg-av-surface border border-av-teal hover:border-av-orange transition-colors duration-200 rounded-sm overflow-hidden cursor-pointer"
+      className="group relative bg-av-surface border-[1.5px] border-av-orange hover:border-av-teal transition-colors duration-200 rounded-2xl overflow-hidden cursor-pointer"
     >
       <Link
         href={href}
-        className={`block ${spacing.cardPadding} h-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-teal`}
+        className="block p-10 h-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-teal"
         tabIndex={0}
       >
         {/* Tag */}

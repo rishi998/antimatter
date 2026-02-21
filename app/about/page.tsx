@@ -13,32 +13,32 @@ export const metadata: Metadata = {
 const founders = [
   {
     name: "Yash Tomar",
-    role: "Vision & Strategy Lead",
-    bio: "Yash architects the company's long-term direction, forging partnerships and ensuring every engagement aligns with Antimatter Verse's commitment to excellence. His strategic foresight drives growth across all verticals.",
+    role: "Chief Executive Officer",
+    bio: "Yash leads the company's vision and long-term strategy, forging partnerships and ensuring every engagement aligns with Antimatter Verse's commitment to excellence. His leadership drives growth across all verticals.",
     initials: "YT",
   },
   {
     name: "Rishi Mehto",
-    role: "Technical Architecture Head",
-    bio: "Rishi oversees all technical decisions — from system design to code quality standards. With deep expertise in full-stack development and cloud infrastructure, he ensures every product is built to last.",
+    role: "Vice President of Engineering",
+    bio: "Rishi oversees all engineering operations — from system design to code quality standards. With deep expertise in full-stack development and cloud infrastructure, he ensures every product is built to last.",
     initials: "RM",
   },
   {
     name: "Prashant Singh Yadav",
-    role: "DevOps & Infrastructure Lead",
-    bio: "Prashant leads cloud engineering, CI/CD automation, and infrastructure reliability. His work ensures clients' systems are resilient, scalable, and secure — around the clock.",
+    role: "Chief Technical Officer",
+    bio: "Prashant defines the technical roadmap and leads cloud engineering, CI/CD automation, and infrastructure reliability. His work ensures clients' systems are resilient, scalable, and secure — around the clock.",
     initials: "PSY",
   },
   {
     name: "Gulshan Kumar",
-    role: "Creative & Brand Director",
-    bio: "Gulshan shapes the visual and narrative identity of every brand we touch. From motion design to complete brand systems, he brings precision and creativity in equal measure.",
+    role: "Chief Product Officer",
+    bio: "Gulshan drives product strategy and shapes the user experience across every platform we build. From ideation to launch, he ensures products are intuitive, impactful, and aligned with business goals.",
     initials: "GK",
   },
   {
     name: "Jatin Bharmota",
-    role: "Growth & Partnerships Lead",
-    bio: "Jatin drives business development and client relationships. His focus on long-term partnerships and transparent communication ensures every client feels like a priority.",
+    role: "Chief Operating Officer",
+    bio: "Jatin runs day-to-day operations and client delivery, ensuring every engagement is executed with precision and on schedule. His focus on process efficiency and transparent communication keeps every project on track.",
     initials: "JB",
   },
 ];
@@ -132,7 +132,7 @@ export default function AboutPage() {
             ].map(({ value, label }) => (
               <div
                 key={label}
-                className={`bg-av-surface border border-av-border ${spacing.cardPadding} rounded-sm`}
+                className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl`}
               >
                 <div className="text-4xl font-bold text-av-teal mb-2">
                   {value}
@@ -148,8 +148,8 @@ export default function AboutPage() {
       <SectionWrapper id="vision-mission">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Vision */}
-          <div className={`bg-av-surface border border-av-teal ${spacing.cardPadding} rounded-sm`}>
-            <div className="w-12 h-12 bg-av-teal/10 border border-av-teal rounded-sm flex items-center justify-center mb-6">
+          <div className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl`}>
+            <div className="w-12 h-12 bg-av-teal/10 border-[1.5px] border-av-teal rounded-xl flex items-center justify-center mb-6">
               <span className="text-av-teal font-bold text-lg">V</span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
@@ -161,8 +161,8 @@ export default function AboutPage() {
           </div>
 
           {/* Mission */}
-          <div className={`bg-av-surface border border-av-orange ${spacing.cardPadding} rounded-sm`}>
-            <div className="w-12 h-12 bg-av-orange/10 border border-av-orange rounded-sm flex items-center justify-center mb-6">
+          <div className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl`}>
+            <div className="w-12 h-12 bg-av-orange/10 border-[1.5px] border-av-orange rounded-xl flex items-center justify-center mb-6">
               <span className="text-av-orange font-bold text-lg">M</span>
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>

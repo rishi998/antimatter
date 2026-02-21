@@ -86,9 +86,9 @@ export default function CTASection() {
                 initial={shouldReduceMotion ? {} : { opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className={`bg-av-surface-2 border border-av-teal ${spacing.cardPadding} rounded-sm flex flex-col items-start gap-4`}
+                className={`bg-av-surface-2 border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl flex flex-col items-start gap-4`}
               >
-                <div className="w-12 h-12 rounded-sm bg-av-teal/10 border border-av-teal flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-av-teal/10 border-[1.5px] border-av-teal flex items-center justify-center">
                   <svg
                     className="w-5 h-5 text-av-teal"
                     fill="none"
@@ -126,7 +126,7 @@ export default function CTASection() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className={`bg-av-surface-2 border border-av-border ${spacing.cardPadding} rounded-sm space-y-5`}
+                className={`bg-av-surface-2 border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl space-y-5`}
                 noValidate
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -146,7 +146,7 @@ export default function CTASection() {
                         setForm((f) => ({ ...f, name: e.target.value }))
                       }
                       placeholder="Jane Smith"
-                      className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-sm placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
+                      className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -165,7 +165,7 @@ export default function CTASection() {
                         setForm((f) => ({ ...f, email: e.target.value }))
                       }
                       placeholder="jane@company.com"
-                      className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-sm placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
+                      className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
                     />
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function CTASection() {
                   </label>
                   <select
                     id="cta-service"
-                    className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-sm focus:outline-none focus:border-av-teal transition-colors duration-200 appearance-none"
+                    className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-av-teal transition-colors duration-200 appearance-none"
                   >
                     <option value="">Select a service...</option>
                     <option value="technical">Technical Services</option>
@@ -206,7 +206,7 @@ export default function CTASection() {
                       setForm((f) => ({ ...f, message: e.target.value }))
                     }
                     placeholder="Briefly describe what you're building or what challenge you're facing..."
-                    className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-sm placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200 resize-none"
+                    className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200 resize-none"
                   />
                 </div>
 
@@ -215,7 +215,7 @@ export default function CTASection() {
                   whileHover={shouldReduceMotion ? {} : { scale: 0.98 }}
                   whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="w-full py-4 bg-av-orange text-white font-semibold text-base rounded-sm hover:bg-av-teal transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-orange"
+                  className="w-full py-4 bg-av-orange text-white font-semibold text-base rounded-xl hover:bg-av-teal transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-orange"
                 >
                   Send Message
                 </motion.button>

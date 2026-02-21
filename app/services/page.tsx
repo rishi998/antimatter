@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import SectionWrapper from "@/components/SectionWrapper";
 import ServicesGrid from "@/components/ServicesGrid";
 import CTASection from "@/components/CTASection";
 import { spacing } from "@/lib/theme";
+import {
+  TbCode,
+  TbShoppingCart,
+  TbCloud,
+  TbGitMerge,
+  TbShieldLock,
+  TbUsers,
+  TbBrush,
+  TbDiamond,
+  TbLayout,
+  TbMovie,
+  TbVideo,
+  TbPresentation,
+} from "react-icons/tb";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -10,81 +25,81 @@ export const metadata: Metadata = {
     "Explore Antimatter Verse's full range of technical and non-technical services — web development, DevOps, branding, UI/UX, and flexible engagement models.",
 };
 
-const technicalServices = [
+const technicalServices: { title: string; description: string; icon: ReactNode }[] = [
   {
     title: "Web & Full-Stack Development",
     description:
       "End-to-end web applications built with modern frameworks. From MVPs to enterprise-scale platforms.",
-    icon: "⬡",
+    icon: <TbCode size={36} />,
   },
   {
     title: "E-Commerce Solutions",
     description:
       "High-conversion storefronts with custom checkout flows, inventory management, and payment integrations.",
-    icon: "◈",
+    icon: <TbShoppingCart size={36} />,
   },
   {
     title: "DevOps & Cloud Engineering",
     description:
       "Automated infrastructure provisioning, container orchestration, and cloud-native architecture on AWS, GCP, and Azure.",
-    icon: "◎",
+    icon: <TbCloud size={36} />,
   },
   {
     title: "CI/CD Pipelines",
     description:
       "Streamlined delivery pipelines that cut deployment friction and accelerate release cycles with zero downtime.",
-    icon: "◇",
+    icon: <TbGitMerge size={36} />,
   },
   {
     title: "Cloud Security & Monitoring",
     description:
       "Proactive threat detection, compliance frameworks, and 24/7 infrastructure monitoring for mission-critical systems.",
-    icon: "◆",
+    icon: <TbShieldLock size={36} />,
   },
   {
     title: "Dedicated Engineers",
     description:
       "Embed vetted engineers directly into your team — no recruitment overhead, instant ramp-up, full alignment.",
-    icon: "◉",
+    icon: <TbUsers size={36} />,
   },
 ];
 
-const creativeServices = [
+const creativeServices: { title: string; description: string; icon: ReactNode }[] = [
   {
     title: "Graphic Design",
     description:
       "Visual communication that cuts through noise — print, digital, and everything in between.",
-    icon: "▣",
+    icon: <TbBrush size={36} />,
   },
   {
     title: "Brand Identity",
     description:
       "Complete brand systems: logo, typography, color, tone, and style guides that stand the test of time.",
-    icon: "▤",
+    icon: <TbDiamond size={36} />,
   },
   {
     title: "UI/UX Design",
     description:
       "Research-backed interfaces that convert. From wireframes to polished design systems.",
-    icon: "▥",
+    icon: <TbLayout size={36} />,
   },
   {
     title: "Motion Graphics",
     description:
       "Dynamic animated content for social, product walkthroughs, and brand storytelling.",
-    icon: "▦",
+    icon: <TbMovie size={36} />,
   },
   {
     title: "Explainer & Marketing Videos",
     description:
       "Concise, compelling video content that communicates value in seconds.",
-    icon: "▧",
+    icon: <TbVideo size={36} />,
   },
   {
     title: "Presentation Design",
     description:
       "Investor decks, pitch presentations, and internal reports designed to persuade and inform.",
-    icon: "▨",
+    icon: <TbPresentation size={36} />,
   },
 ];
 
@@ -266,7 +281,7 @@ export default function ServicesPage() {
               Why Us
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
             Why Choose <span className="text-av-teal">Antimatter Verse</span>
           </h2>
           <div
@@ -310,20 +325,20 @@ function ServiceDetailCard({
 }: {
   title: string;
   description: string;
-  icon: string;
+  icon: ReactNode;
   index: number;
   accent?: "teal" | "orange";
 }) {
-  const borderColor =
-    accent === "teal" ? "border-av-teal" : "border-av-orange";
   const iconColor = accent === "teal" ? "text-av-teal" : "text-av-orange";
 
   return (
     <div
-      className={`group bg-av-surface border ${borderColor} ${spacing.cardPadding} rounded-sm hover:border-av-orange transition-all duration-200 hover:scale-[0.98]`}
+      className={`group bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl hover:border-av-teal transition-all duration-200 hover:scale-[0.98]`}
       style={{ transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)" }}
     >
-      <span className={`text-3xl ${iconColor} block mb-6`}>{icon}</span>
+      <div className={`${iconColor} mb-6 group-hover:text-av-orange transition-colors duration-200`}>
+        {icon}
+      </div>
       <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
       <p className="text-white/60 text-sm leading-relaxed">{description}</p>
     </div>
@@ -343,7 +358,7 @@ function EngagementCard({
 }) {
   return (
     <div
-      className={`group bg-av-surface border border-av-border ${spacing.cardPadding} rounded-sm hover:border-av-teal transition-all duration-200 hover:scale-[0.98]`}
+      className={`group bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl hover:border-av-teal transition-all duration-200 hover:scale-[0.98]`}
       style={{ transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)" }}
     >
       <span className="text-xs font-medium text-av-orange tracking-[0.15em] uppercase block mb-4">

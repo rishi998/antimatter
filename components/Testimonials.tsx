@@ -135,7 +135,7 @@ function TestimonialCard({
           ? {}
           : { type: "spring", stiffness: 80, damping: 20, delay: index * 0.05 }
       }
-      className={`flex-shrink-0 w-[340px] md:w-[400px] bg-av-surface border border-av-border ${spacing.cardPadding} rounded-sm flex flex-col justify-between hover:border-av-teal transition-colors duration-200`}
+      className={`flex-shrink-0 w-[340px] md:w-[400px] bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl flex flex-col justify-between hover:border-av-teal transition-colors duration-200`}
     >
       {/* Quote icon */}
       <div className="mb-6">
@@ -156,7 +156,7 @@ function TestimonialCard({
 
       {/* Author */}
       <div className="flex items-center gap-3 border-t border-av-border pt-6">
-        <div className="w-10 h-10 rounded-sm bg-av-teal/10 border border-av-teal flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 rounded-xl bg-av-teal/10 border-[1.5px] border-av-teal flex items-center justify-center flex-shrink-0">
           <span className="text-av-teal text-xs font-bold">{initials}</span>
         </div>
         <div>

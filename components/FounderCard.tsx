@@ -19,7 +19,7 @@ export default function FounderCard({ name, role, bio, initials }: FounderCardPr
 
   return (
     <div
-      className="relative h-[320px] cursor-pointer select-none focus-visible:outline-none"
+      className="relative h-[400px] cursor-pointer select-none focus-visible:outline-none"
       style={{ perspective: "1000px" }}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
@@ -36,25 +36,27 @@ export default function FounderCard({ name, role, bio, initials }: FounderCardPr
     >
       {shouldReduceMotion ? (
         /* Reduced motion: show content statically, toggle on click */
-        <div className={`w-full h-full bg-av-surface border ${isFlipped ? "border-av-orange" : "border-av-teal"} rounded-sm ${spacing.cardPadding} flex flex-col`}>
+        <div className={`w-full h-full bg-av-surface border-[1.5px] border-av-orange rounded-2xl ${spacing.cardPadding} flex flex-col overflow-hidden`}>
           {!isFlipped ? (
             <>
-              <div className="w-14 h-14 rounded-sm bg-av-teal/10 border border-av-teal flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl bg-av-teal/10 border-[1.5px] border-av-teal flex items-center justify-center mb-4 flex-shrink-0">
                 <span className="text-av-teal font-bold text-sm">{initials}</span>
               </div>
               <div className="flex-1" />
-              <div>
+              <div className="flex-shrink-0">
                 <p className="text-white font-bold text-lg leading-tight mb-1">{name}</p>
                 <p className="text-av-teal text-xs font-medium tracking-[0.15em] uppercase">{role}</p>
               </div>
             </>
           ) : (
-            <>
-              <p className="text-white/70 text-sm leading-relaxed flex-1">{bio}</p>
-              <div className="pt-4 border-t border-av-border mt-4">
+            <div className="w-full h-full p-[20%] flex flex-col overflow-hidden">
+              <div className="flex-1 overflow-y-auto min-h-0 pr-1">
+                <p className="text-white/70 text-sm leading-relaxed">{bio}</p>
+              </div>
+              <div className="pt-4 border-t border-av-border mt-4 flex-shrink-0">
                 <SocialIcons />
               </div>
-            </>
+            </div>
           )}
         </div>
       ) : (
@@ -66,14 +68,14 @@ export default function FounderCard({ name, role, bio, initials }: FounderCardPr
         >
           {/* Front */}
           <div
-            className={`absolute inset-0 bg-av-surface border border-av-teal rounded-sm ${spacing.cardPadding} flex flex-col`}
+            className={`absolute inset-0 bg-av-surface border-[1.5px] border-av-orange rounded-2xl ${spacing.cardPadding} flex flex-col overflow-hidden`}
             style={{ backfaceVisibility: "hidden" }}
           >
-            <div className="w-14 h-14 rounded-sm bg-av-teal/10 border border-av-teal flex items-center justify-center mb-4">
+            <div className="w-14 h-14 rounded-xl bg-av-teal/10 border-[1.5px] border-av-teal flex items-center justify-center mb-4 flex-shrink-0">
               <span className="text-av-teal font-bold text-sm">{initials}</span>
             </div>
             <div className="flex-1" />
-            <div>
+            <div className="flex-shrink-0">
               <p className="text-xs text-white/40 mb-3 tracking-wider uppercase">Hover to read</p>
               <p className="text-white font-bold text-lg leading-tight mb-1">{name}</p>
               <p className="text-av-teal text-xs font-medium tracking-[0.15em] uppercase">
@@ -84,22 +86,24 @@ export default function FounderCard({ name, role, bio, initials }: FounderCardPr
 
           {/* Back */}
           <div
-            className={`absolute inset-0 bg-av-surface border border-av-orange rounded-sm ${spacing.cardPadding} flex flex-col`}
+            className="absolute inset-0 bg-av-surface border-[1.5px] border-av-orange rounded-2xl p-[5%] flex flex-col overflow-hidden"
             style={{
               backfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
             }}
           >
-            <div className="mb-3">
+            <div className="mb-3 flex-shrink-0">
               <p className="text-white font-bold text-base leading-tight">{name}</p>
               <p className="text-av-orange text-xs font-medium tracking-[0.15em] uppercase mt-0.5">
                 {role}
               </p>
             </div>
-            <p className="text-white/65 text-sm leading-relaxed flex-1">
-              {bio}
-            </p>
-            <div className="pt-4 border-t border-av-border mt-4">
+            <div className="flex-1 overflow-y-auto min-h-0 pr-1">
+              <p className="text-white/65 text-sm leading-relaxed">
+                {bio}
+              </p>
+            </div>
+            <div className="pt-4 border-t border-av-border mt-4 flex-shrink-0">
               <SocialIcons />
             </div>
           </div>
@@ -134,7 +138,7 @@ function SocialIcons() {
           key={label}
           href="#"
           aria-label={label}
-          className="w-7 h-7 border border-av-border rounded-sm flex items-center justify-center text-white/40 hover:text-av-orange hover:border-av-orange transition-all duration-200"
+          className="w-7 h-7 border border-av-border rounded-lg flex items-center justify-center text-white/40 hover:text-av-orange hover:border-av-orange transition-all duration-200"
           onClick={(e) => e.stopPropagation()}
         >
           {icon}

@@ -62,14 +62,14 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8" role="list">
+        <ul className="hidden md:flex items-center gap-12" role="list">
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href;
             return (
               <li key={href}>
                 <Link
                   href={href}
-                  className={`relative text-sm font-medium tracking-wide transition-colors duration-200 group py-1 ${
+                  className={`relative text-base font-bold tracking-wide transition-colors duration-200 group py-1 ${
                     isActive
                       ? "text-av-orange"
                       : "text-white/70 hover:text-white"
@@ -94,7 +94,7 @@ export default function Navbar() {
             >
               <Link
                 href="/services"
-                className="px-5 py-2 text-sm font-semibold bg-av-teal text-white rounded-sm hover:bg-av-orange transition-colors duration-200"
+                className="px-6 py-2.5 text-base font-bold bg-av-teal text-white rounded-xl hover:bg-av-orange transition-colors duration-200"
               >
                 Get Started
               </Link>
@@ -167,7 +167,7 @@ export default function Navbar() {
               <li className="pt-3">
                 <Link
                   href="/services"
-                  className="inline-block px-6 py-2.5 text-sm font-semibold bg-av-teal text-white rounded-sm hover:bg-av-orange transition-colors duration-200"
+                  className="inline-block px-6 py-2.5 text-sm font-semibold bg-av-teal text-white rounded-xl hover:bg-av-orange transition-colors duration-200"
                 >
                   Get Started
                 </Link>
