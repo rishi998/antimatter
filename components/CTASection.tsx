@@ -11,6 +11,13 @@ export default function CTASection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Open the Google form page
+    window.open(
+      "https://mehtorishi.app.n8n.cloud/form/77162c7f-8d13-4ad6-a3dc-e2a6d2d55586",
+      "_blank"
+    );
+
     setSubmitted(true);
   };
 
@@ -125,100 +132,115 @@ export default function CTASection() {
                 </button>
               </motion.div>
             ) : (
+              // <form
+              //   onSubmit={handleSubmit}
+              //   className={`bg-av-surface-2 border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl space-y-5`}
+              //   noValidate
+              // >
+              //   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              //     <div>
+              //       <label
+              //         htmlFor="cta-name"
+              //         className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
+              //       >
+              //         Full Name
+              //       </label>
+              //       <input
+              //         id="cta-name"
+              //         type="text"
+              //         required
+              //         value={form.name}
+              //         onChange={(e) =>
+              //           setForm((f) => ({ ...f, name: e.target.value }))
+              //         }
+              //         placeholder="Jane Smith"
+              //         className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
+              //       />
+              //     </div>
+              //     <div>
+              //       <label
+              //         htmlFor="cta-email"
+              //         className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
+              //       >
+              //         Email Address
+              //       </label>
+              //       <input
+              //         id="cta-email"
+              //         type="email"
+              //         required
+              //         value={form.email}
+              //         onChange={(e) =>
+              //           setForm((f) => ({ ...f, email: e.target.value }))
+              //         }
+              //         placeholder="jane@company.com"
+              //         className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
+              //       />
+              //     </div>
+              //   </div>
+
+              //   <div>
+              //     <label
+              //       htmlFor="cta-service"
+              //       className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
+              //     >
+              //       Service of Interest
+              //     </label>
+              //     <select
+              //       id="cta-service"
+              //       className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-av-teal transition-colors duration-200 appearance-none"
+              //     >
+              //       <option value="">Select a service...</option>
+              //       <option value="technical">Technical Services</option>
+              //       <option value="creative">Creative & Brand Services</option>
+              //       <option value="devops">DevOps & Cloud</option>
+              //       <option value="dedicated">Dedicated Engineers</option>
+              //       <option value="other">Other / Multiple</option>
+              //     </select>
+              //   </div>
+
+              //   <div>
+              //     <label
+              //       htmlFor="cta-message"
+              //       className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
+              //     >
+              //       Tell Us More
+              //     </label>
+              //     <textarea
+              //       id="cta-message"
+              //       rows={4}
+              //       required
+              //       value={form.message}
+              //       onChange={(e) =>
+              //         setForm((f) => ({ ...f, message: e.target.value }))
+              //       }
+              //       placeholder="Briefly describe what you're building or what challenge you're facing..."
+              //       className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200 resize-none"
+              //     />
+              //   </div>
+
+              //   <motion.button
+              //     type="submit"
+              //     whileHover={shouldReduceMotion ? {} : { scale: 0.98 }}
+              //     whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
+              //     transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              //     className="w-full py-4 bg-av-orange text-white font-semibold text-base rounded-xl hover:bg-av-teal transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-orange"
+              //   >
+              //     Send Message
+              //   </motion.button>
+              // </form>
               <form
                 onSubmit={handleSubmit}
-                className={`bg-av-surface-2 border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl space-y-5`}
+                className={`bg-av-surface-2 border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl flex items-center justify-center`}
                 noValidate
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label
-                      htmlFor="cta-name"
-                      className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
-                    >
-                      Full Name
-                    </label>
-                    <input
-                      id="cta-name"
-                      type="text"
-                      required
-                      value={form.name}
-                      onChange={(e) =>
-                        setForm((f) => ({ ...f, name: e.target.value }))
-                      }
-                      placeholder="Jane Smith"
-                      className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="cta-email"
-                      className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      id="cta-email"
-                      type="email"
-                      required
-                      value={form.email}
-                      onChange={(e) =>
-                        setForm((f) => ({ ...f, email: e.target.value }))
-                      }
-                      placeholder="jane@company.com"
-                      className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="cta-service"
-                    className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
-                  >
-                    Service of Interest
-                  </label>
-                  <select
-                    id="cta-service"
-                    className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl focus:outline-none focus:border-av-teal transition-colors duration-200 appearance-none"
-                  >
-                    <option value="">Select a service...</option>
-                    <option value="technical">Technical Services</option>
-                    <option value="creative">Creative & Brand Services</option>
-                    <option value="devops">DevOps & Cloud</option>
-                    <option value="dedicated">Dedicated Engineers</option>
-                    <option value="other">Other / Multiple</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="cta-message"
-                    className="block text-xs font-medium text-white/60 tracking-[0.12em] uppercase mb-2"
-                  >
-                    Tell Us More
-                  </label>
-                  <textarea
-                    id="cta-message"
-                    rows={4}
-                    required
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm((f) => ({ ...f, message: e.target.value }))
-                    }
-                    placeholder="Briefly describe what you're building or what challenge you're facing..."
-                    className="w-full bg-black border border-av-border text-white text-sm px-4 py-3 rounded-xl placeholder:text-white/30 focus:outline-none focus:border-av-teal transition-colors duration-200 resize-none"
-                  />
-                </div>
-
                 <motion.button
                   type="submit"
                   whileHover={shouldReduceMotion ? {} : { scale: 0.98 }}
                   whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  className="w-full py-4 bg-av-orange text-white font-semibold text-base rounded-xl hover:bg-av-teal transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-orange"
+                  className="px-8 py-4 bg-av-orange text-white font-semibold text-base rounded-xl hover:bg-av-teal transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-av-orange"
                 >
-                  Send Message
+                  Connect Us
                 </motion.button>
               </form>
             )}
