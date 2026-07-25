@@ -106,7 +106,7 @@ export default function ServicesGrid({ preview = false }: { preview?: boolean })
               className="text-white/60 max-w-2xl text-lg leading-relaxed"
             >
               From engineering infrastructure to brand identity, Antimatter
-              Verse covers every dimension of your business.
+              Innovations covers every dimension of your business.
             </motion.p>
           )}
         </motion.div>

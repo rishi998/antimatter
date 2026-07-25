@@ -1,67 +1,23 @@
 "use client";
 
-import { useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import { spacing, motionVariants } from "@/lib/theme";
-
-const testimonials = [
-  {
-    quote:
-      "Antimatter Verse transformed our entire platform in 8 weeks. The engineering quality was exceptional — zero bugs at launch, and the DevOps setup they configured has saved us countless hours since.",
-    author: "Sarah Chen",
-    role: "CTO",
-    company: "Nexora Labs",
-    initials: "SC",
-  },
-  {
-    quote:
-      "The brand identity work was nothing short of extraordinary. They understood our vision immediately and executed it with a level of craft that genuinely surprised us. Our investor deck looks like it's from a Fortune 500 company.",
-    author: "Marcus Webb",
-    role: "Founder & CEO",
-    company: "Velance Finance",
-    initials: "MW",
-  },
-  {
-    quote:
-      "Working with their dedicated engineering team felt like having in-house developers who actually cared. Fast communication, clean code, and they always delivered ahead of schedule.",
-    author: "Priya Anand",
-    role: "Head of Product",
-    company: "Stackform",
-    initials: "PA",
-  },
-  {
-    quote:
-      "The managed services model was exactly what we needed. One point of contact, SLA-backed delivery, and a team that proactively flagged issues before they became problems. Highly recommend.",
-    author: "James O'Brien",
-    role: "Operations Director",
-    company: "TridentFlow",
-    initials: "JO",
-  },
-  {
-    quote:
-      "Their UI/UX team redesigned our onboarding flow and our activation rate jumped 38% in the first month. The attention to micro-interactions and accessibility was impressive.",
-    author: "Lena Kovacs",
-    role: "Product Designer",
-    company: "Clarix AI",
-    initials: "LK",
-  },
-];
+import { testimonials } from "@/lib/testimonials";
+import type { Testimonial } from "@/lib/testimonials";
 
 export default function Testimonials() {
   const shouldReduceMotion = useReducedMotion();
-  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <SectionWrapper id="testimonials">
+    <SectionWrapper id="testimonials" className="scroll-mt-24">
       <div className="max-w-[1400px] mx-auto">
-        {/* Header */}
         <motion.div
           variants={motionVariants.staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-14"
         >
           <motion.div
             variants={motionVariants.fadeUp}
@@ -69,45 +25,31 @@ export default function Testimonials() {
           >
             <span className="w-8 h-px bg-av-teal" aria-hidden="true" />
             <span className="text-av-teal text-sm font-medium tracking-[0.2em] uppercase">
-              Testimonials
+              Client Feedback
             </span>
           </motion.div>
           <motion.h2
             variants={motionVariants.fadeUp}
+            id="testimonials-heading"
             className="text-4xl md:text-5xl font-bold text-white"
           >
-            Trusted by <span className="text-av-teal">Builders</span>
+            Testimonials
           </motion.h2>
           <motion.p
             variants={motionVariants.fadeUp}
-            className="text-white/60 mt-4 text-lg"
+            className="text-white/60 mt-4 text-lg max-w-2xl"
           >
-            Drag to explore &mdash; or just read.
+            Real feedback from brands we engineered and launched.
           </motion.p>
         </motion.div>
 
-        {/* Draggable Slider */}
-        <div className="overflow-hidden -mx-6 md:-mx-16 px-6 md:px-16" ref={containerRef}>
-          <motion.div
-            drag={shouldReduceMotion ? false : "x"}
-            dragConstraints={containerRef}
-            dragElastic={0.1}
-            whileDrag={{ cursor: "grabbing" }}
-            className="flex gap-10 cursor-grab select-none pb-4"
-            style={{ width: "max-content" }}
-          >
-            {testimonials.map((t, i) => (
-              <TestimonialCard key={i} {...t} index={i} shouldReduceMotion={!!shouldReduceMotion} />
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Scroll hint */}
-        <div className="flex items-center gap-2 mt-6" aria-hidden="true">
-          {testimonials.map((_, i) => (
-            <span
-              key={i}
-              className="w-1.5 h-1.5 rounded-full bg-av-border"
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+          {testimonials.map((t, i) => (
+            <TestimonialCard
+              key={t.id}
+              {...t}
+              index={i}
+              shouldReduceMotion={!!shouldReduceMotion}
             />
           ))}
         </div>
@@ -116,56 +58,89 @@ export default function Testimonials() {
   );
 }
 
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div
+      className="flex items-center gap-1 mb-6"
+      aria-label={`${rating} out of 5 stars`}
+    >
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg
+          key={i}
+          className={`w-4 h-4 ${i < rating ? "text-av-orange" : "text-white/15"}`}
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          aria-hidden="true"
+        >
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 function TestimonialCard({
   quote,
   author,
   role,
   company,
+  companyUrl,
+  rating,
   initials,
   index,
   shouldReduceMotion,
-}: (typeof testimonials)[0] & { index: number; shouldReduceMotion: boolean }) {
+}: Testimonial & { index: number; shouldReduceMotion: boolean }) {
   return (
-    <motion.div
-      initial={shouldReduceMotion ? {} : { opacity: 0, y: 16 }}
-      whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+    <motion.article
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={
         shouldReduceMotion
-          ? {}
-          : { type: "spring", stiffness: 80, damping: 20, delay: index * 0.05 }
+          ? undefined
+          : {
+              type: "spring",
+              stiffness: 80,
+              damping: 20,
+              delay: Math.min(index, 5) * 0.05,
+            }
       }
-      className={`flex-shrink-0 w-[340px] md:w-[400px] bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl flex flex-col justify-between hover:border-av-teal transition-colors duration-200`}
+      className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl flex flex-col justify-between hover:border-av-teal transition-colors duration-200 h-full`}
     >
-      {/* Quote icon */}
-      <div className="mb-6">
+      <div>
+        <StarRating rating={rating} />
         <svg
-          className="w-8 h-8 text-av-orange"
+          className="w-8 h-8 text-av-orange mb-6"
           fill="currentColor"
           viewBox="0 0 32 32"
           aria-hidden="true"
         >
           <path d="M10 8C6.686 8 4 10.686 4 14v10h10V14H7.5C7.5 11.515 9.015 10 10 10V8zm18 0c-3.314 0-6 2.686-6 6v10h10V14h-6.5C25.5 11.515 27.015 10 28 10V8z" />
         </svg>
+        <p className="text-white/70 leading-relaxed text-[15px] mb-8">
+          &ldquo;{quote}&rdquo;
+        </p>
       </div>
 
-      {/* Quote text */}
-      <p className="text-white/70 leading-relaxed text-[15px] flex-1 mb-8">
-        &ldquo;{quote}&rdquo;
-      </p>
-
-      {/* Author */}
       <div className="flex items-center gap-3 border-t border-av-border pt-6">
         <div className="w-10 h-10 rounded-xl bg-av-teal/10 border-[1.5px] border-av-teal flex items-center justify-center flex-shrink-0">
           <span className="text-av-teal text-xs font-bold">{initials}</span>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="text-white text-sm font-semibold">{author}</p>
           <p className="text-white/50 text-xs">
-            {role} &mdash; {company}
+            {role} &mdash;{" "}
+            <a
+              href={companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-av-teal hover:text-av-orange transition-colors duration-200"
+            >
+              {company}
+            </a>
           </p>
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

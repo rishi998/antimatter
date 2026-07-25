@@ -152,7 +152,7 @@ export default function Hero() {
           {...entrance(0.2)}
           className="text-lg md:text-xl text-white/55 max-w-2xl leading-relaxed mb-12"
         >
-          Antimatter Verse delivers technical and creative excellence with
+          Antimatter Innovations delivers technical and creative excellence with
           precision, passion, and performance.
         </motion.p>
 
@@ -194,10 +194,10 @@ export default function Hero() {
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
           >
             <Link
-              href="/about"
+              href="/#testimonials"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-white font-semibold text-base rounded-xl hover:border-av-orange hover:text-av-orange transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50"
             >
-              Work With Us
+              View Testimonials
             </Link>
           </motion.div>
         </motion.div>

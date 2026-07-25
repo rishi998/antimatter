@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,29 +11,35 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
   },
   title: {
-    default: "Antimatter Verse – Engineering Solutions That Matter",
-    template: "%s | Antimatter Verse",
+    default: "Antimatter Innovations – Engineering Solutions That Matter",
+    template: "%s | Antimatter Innovations",
   },
   description:
-    "Antimatter Verse delivers technical and creative excellence with precision, passion, and performance. Web development, DevOps, branding, UI/UX, and more.",
+    "Antimatter Innovations delivers technical and creative excellence with precision, passion, and performance. Web development, DevOps, branding, UI/UX, and more.",
   keywords: [
     "consultancy",
     "web development",
     "DevOps",
     "branding",
     "UI/UX design",
-    "Antimatter Verse",
+    "Antimatter Innovations",
     "cloud engineering",
     "motion graphics",
   ],
   openGraph: {
-    siteName: "Antimatter Verse",
+    siteName: "Antimatter Innovations",
     type: "website",
     locale: "en_US",
   },
@@ -52,6 +59,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <WhatsAppFloat />
       </body>
     </html>
   );

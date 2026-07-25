@@ -6,9 +6,11 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { spacing } from "@/lib/theme";
+import ConnectWhatsAppButton from "./ConnectWhatsAppButton";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/#testimonials", label: "Testimonials" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About Us" },
 ];
@@ -45,15 +47,14 @@ export default function Navbar() {
       <nav
         className={`flex items-center justify-between h-16 ${spacing.sectionX} max-w-[1400px] mx-auto`}
       >
-        {/* Logo */}
         <Link
           href="/"
           className="flex items-center group"
-          aria-label="Antimatter Verse Home"
+          aria-label="Antimatter Innovations Home"
         >
           <Image
             src="/logo.png"
-            alt="Antimatter Verse"
+            alt="Antimatter Innovations"
             width={200}
             height={200}
             className="object-contain group-hover:scale-105 transition-transform duration-200"
@@ -61,10 +62,14 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-12" role="list">
           {navLinks.map(({ href, label }) => {
-            const isActive = pathname === href;
+            const isActive =
+              href === "/"
+                ? pathname === "/"
+                : href.startsWith("/#")
+                  ? false
+                  : pathname === href;
             return (
               <li key={href}>
                 <Link
@@ -92,17 +97,11 @@ export default function Navbar() {
               whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <Link
-                href="/services"
-                className="px-6 py-2.5 text-base font-bold bg-av-teal text-white rounded-xl hover:bg-av-orange transition-colors duration-200"
-              >
-                Get Started
-              </Link>
+              <ConnectWhatsAppButton className="inline-flex items-center gap-2 px-6 py-2.5 text-base font-bold bg-av-teal text-white rounded-xl hover:bg-av-orange transition-colors duration-200" />
             </motion.div>
           </li>
         </ul>
 
-        {/* Mobile Hamburger */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-2 -mr-2"
           onClick={() => setIsOpen(!isOpen)}
@@ -134,7 +133,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -159,18 +157,17 @@ export default function Navbar() {
                         : "text-white/80 hover:text-white"
                     }`}
                     aria-current={pathname === href ? "page" : undefined}
+                    onClick={() => setIsOpen(false)}
                   >
                     {label}
                   </Link>
                 </li>
               ))}
               <li className="pt-3">
-                <Link
-                  href="/services"
-                  className="inline-block px-6 py-2.5 text-sm font-semibold bg-av-teal text-white rounded-xl hover:bg-av-orange transition-colors duration-200"
-                >
-                  Get Started
-                </Link>
+                <ConnectWhatsAppButton
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold bg-av-teal text-white rounded-xl hover:bg-av-orange transition-colors duration-200"
+                  onClick={() => setIsOpen(false)}
+                />
               </li>
             </ul>
           </motion.div>

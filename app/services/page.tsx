@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Antimatter Verse's full range of technical and non-technical services — web development, DevOps, branding, UI/UX, and flexible engagement models.",
+    "Explore Antimatter Innovations' full range of technical and non-technical services — web development, DevOps, branding, UI/UX, and flexible engagement models.",
 };
 
 const technicalServices: { title: string; description: string; icon: ReactNode }[] = [
@@ -282,7 +282,7 @@ export default function ServicesPage() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
-            Why Choose <span className="text-av-teal">Antimatter Verse</span>
+            Why Choose <span className="text-av-teal">Antimatter Innovations</span>
           </h2>
           <div
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${spacing.gapMedium}`}

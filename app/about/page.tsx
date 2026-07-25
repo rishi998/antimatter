@@ -1,70 +1,19 @@
 import type { Metadata } from "next";
 import SectionWrapper from "@/components/SectionWrapper";
 import FounderCard from "@/components/FounderCard";
+import CompanyProfileSection from "@/components/CompanyProfileSection";
 import CTASection from "@/components/CTASection";
+import { company } from "@/lib/company";
 import { spacing } from "@/lib/theme";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Antimatter Verse — our vision, mission, and the team driving technical and creative excellence for clients worldwide.",
+    "Learn about Antimatter Innovations — our vision, mission, and the team driving technical and creative excellence for clients worldwide.",
 };
 
-const founders = [
-  {
-    name: "Yash Tomar",
-    role: "Chief Executive Officer",
-    bio: "Yash leads the company's vision and long-term strategy, forging partnerships and ensuring every engagement aligns with Antimatter Verse's commitment to excellence. His leadership drives growth across all verticals.",
-    initials: "YT",
-  },
-  {
-    name: "Rishi Mehto",
-    role: "Chief Backend Architect",
-    bio: "Rishi oversees all engineering operations — from system design to code quality standards. With deep expertise in full-stack development and cloud infrastructure, he ensures every product is built to last.",
-    initials: "RM",
-  },
-  {
-    name: "Prashant Singh Yadav",
-    role: "Chief Technical Officer",
-    bio: "Prashant defines the technical roadmap and leads cloud engineering, CI/CD automation, and infrastructure reliability. His work ensures clients' systems are resilient, scalable, and secure — around the clock.",
-    initials: "PSY",
-  },
-  {
-    name: "Gulshan Kumar",
-    role: "Chief Product Officer",
-    bio: "Gulshan drives product strategy and shapes the user experience across every platform we build. From ideation to launch, he ensures products are intuitive, impactful, and aligned with business goals.",
-    initials: "GK",
-  },
-  {
-    name: "Jatin Bharmota",
-    role: "Chief Operating Officer",
-    bio: "Jatin runs day-to-day operations and client delivery, ensuring every engagement is executed with precision and on schedule. His focus on process efficiency and transparent communication keeps every project on track.",
-    initials: "JB",
-  },
-];
-
-const values = [
-  {
-    title: "Precision",
-    description:
-      "We sweat the details others skip. Every pixel, every deployment, every decision is deliberate.",
-  },
-  {
-    title: "Reliability",
-    description:
-      "When we commit to a deadline or deliverable, we deliver — no excuses, no surprises.",
-  },
-  {
-    title: "Transparency",
-    description:
-      "Open communication at every stage. You always know where your project stands.",
-  },
-  {
-    title: "Innovation",
-    description:
-      "We stay ahead of the curve so our clients benefit from the best tools and approaches available.",
-  },
-];
+const founders = [...company.founders];
+const values = company.values;
 
 export default function AboutPage() {
   return (
@@ -111,7 +60,7 @@ export default function AboutPage() {
               <span className="text-av-teal">Driven by Purpose</span>
             </h2>
             <p className="text-white/60 leading-relaxed mb-6 text-lg">
-              Antimatter Verse is a professional consultancy delivering
+              Antimatter Innovations is a professional consultancy delivering
               end-to-end technical and creative solutions with reliability and
               innovation. We combine deep engineering expertise with refined
               creative capabilities to serve clients across industries and
@@ -124,12 +73,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className={`grid grid-cols-2 ${spacing.gapMedium}`}>
-            {[
-              { value: "50+", label: "Projects Delivered" },
-              { value: "12+", label: "Service Domains" },
-              { value: "20+", label: "Team Members" },
-              { value: "98%", label: "Client Retention" },
-            ].map(({ value, label }) => (
+            {company.stats.map(({ value, label }) => (
               <div
                 key={label}
                 className={`bg-av-surface border-[1.5px] border-av-orange ${spacing.cardPadding} rounded-2xl`}
@@ -229,16 +173,18 @@ export default function AboutPage() {
             Meet the <span className="text-av-teal">Founders</span>
           </h2>
           <p className="text-white/60 max-w-2xl mb-16 text-lg leading-relaxed">
-            Five specialists, one shared standard — exceptional work, every
+            Three specialists, one shared standard — exceptional work, every
             time.
           </p>
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 ${spacing.gapMedium}`}>
+          <div className={`grid grid-cols-1 md:grid-cols-3 ${spacing.gapMedium}`}>
             {founders.map((founder, i) => (
               <FounderCard key={i} {...founder} />
             ))}
           </div>
         </div>
       </SectionWrapper>
+
+      <CompanyProfileSection />
 
       <CTASection />
     </>

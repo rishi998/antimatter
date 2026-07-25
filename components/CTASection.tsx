@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { spacing, motionVariants } from "@/lib/theme";
+import ConnectWhatsAppButton from "./ConnectWhatsAppButton";
 
 export default function CTASection() {
   const shouldReduceMotion = useReducedMotion();
@@ -74,6 +75,10 @@ export default function CTASection() {
                   <span className="text-sm">{label}</span>
                 </div>
               ))}
+            </motion.div>
+
+            <motion.div variants={motionVariants.fadeUp} className="mt-10">
+              <ConnectWhatsAppButton className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#25D366] text-white font-semibold text-base rounded-xl hover:bg-[#1ebe57] transition-colors duration-200" />
             </motion.div>
           </motion.div>
 

@@ -13,6 +13,8 @@ const footerLinks = {
   Company: [
     { label: "About Us", href: "/about" },
     { label: "Our Team", href: "/about#team" },
+    { label: "Company Profile", href: "/about#company-profile" },
+    { label: "Testimonials", href: "/#testimonials" },
     { label: "Vision & Mission", href: "/about#vision-mission" },
     { label: "Why Choose Us", href: "/services#why-us" },
   ],
@@ -30,11 +32,11 @@ export default function Footer() {
             <Link
               href="/"
               className="flex items-center mb-5 group w-fit"
-              aria-label="Antimatter Verse Home"
+              aria-label="Antimatter Innovations Home"
             >
               <Image
                 src="/logo.png"
-                alt="Antimatter Verse"
+                alt="Antimatter Innovations"
                 width={160}
                 height={160}
                 className="object-contain group-hover:scale-105 transition-transform duration-200"
@@ -127,7 +129,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-av-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/40 text-sm">
-            &copy; {year} Antimatter Verse. All rights reserved.
+            &copy; {year} Antimatter Innovations. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a
