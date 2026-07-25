@@ -59,6 +59,7 @@ export default function Navbar() {
             height={200}
             className="object-contain group-hover:scale-105 transition-transform duration-200"
             priority
+            key="logo-innovations"
           />
         </Link>
 

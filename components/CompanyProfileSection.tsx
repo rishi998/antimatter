@@ -9,7 +9,7 @@ import { spacing, motionVariants } from "@/lib/theme";
 export default function CompanyProfileSection() {
   const shouldReduceMotion = useReducedMotion();
   const [copied, setCopied] = useState(false);
-  const [shareUrl, setShareUrl] = useState(company.profilePdfPath);
+  const [shareUrl, setShareUrl] = useState<string>(company.profilePdfPath);
   const pdfUrl = company.profilePdfPath;
 
   useEffect(() => {
