@@ -9,13 +9,22 @@ interface FounderCardProps {
   role: string;
   bio: string;
   initials: string;
+  portfolioUrl?: string;
 }
 
-export default function FounderCard({ name, role, bio, initials }: FounderCardProps) {
+export default function FounderCard({ name, role, bio, initials, portfolioUrl }: FounderCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const handleFlip = () => setIsFlipped(!isFlipped);
+
+  const handleClick = () => {
+    if (portfolioUrl) {
+      window.open(portfolioUrl, "_blank", "noopener,noreferrer");
+      return;
+    }
+    handleFlip();
+  };
 
   return (
     <div
@@ -23,16 +32,20 @@ export default function FounderCard({ name, role, bio, initials }: FounderCardPr
       style={{ perspective: "1000px" }}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
-      onClick={handleFlip}
+      onClick={handleClick}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          handleFlip();
+          handleClick();
         }
       }}
       role="button"
       tabIndex={0}
-      aria-label={`${name}, ${role}. Press to read bio.`}
+      aria-label={
+        portfolioUrl
+          ? `${name}, ${role}. Open portfolio.`
+          : `${name}, ${role}. Press to read bio.`
+      }
     >
       {shouldReduceMotion ? (
         /* Reduced motion: show content statically, toggle on click */

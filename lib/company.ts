@@ -153,12 +153,14 @@ export const company = {
       role: "Chief Executive Officer",
       bio: "Yash leads the company's vision and long-term strategy, forging partnerships and ensuring every engagement aligns with Antimatter Innovations' commitment to excellence. His leadership drives growth across all verticals.",
       initials: "YT",
+      portfolioUrl: "https://portfolio-yash-tau.vercel.app",
     },
     {
       name: "Rishi Mehto",
       role: "Chief Backend Architect",
       bio: "Rishi oversees all engineering operations — from system design to code quality standards. With deep expertise in full-stack development and cloud infrastructure, he ensures every product is built to last.",
       initials: "RM",
+      portfolioUrl: "https://mehtorishipf.vercel.app",
     },
     {
       name: "Asad Mazhar",
